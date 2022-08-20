@@ -1,12 +1,12 @@
 #!/bin/bash
 for (( ;; )); do
 echo -e "\033[0;32mCollecting rewards!\033[0m"
-rebusd tx distribution withdraw-rewards rebusvaloper1csg07en4q83kfpsuefxe0uezce42cykq8llr3e --commission --from=wallet --yes --broadcast-mode block --chain-id reb_3333-1
+rebusd tx distribution withdraw-rewards rebusvaloper1tcq38lm7r5kjjzug7g7zktraarjqle40vtuq7l --commission --from=wallet --yes --broadcast-mode block --chain-id reb_3333-1
 echo -e "\033[0;32mWaiting 10 seconds  before requesting balance\033[0m"
 sleep 10
-AMOUNT=$(rebusd query bank balances rebus1csg07en4q83kfpsuefxe0uezce42cykqegruy6 -oj | jq -r '.balances[] | select(.denom=="arebus") | .amount')
+AMOUNT=$(rebusd query bank balances rebus1tcq38lm7r5kjjzug7g7zktraarjqle40juqltu -oj | jq -r '.balances[] | select(.denom=="arebus") | .amount')
 AMOUNT_STRING="$AMOUNT"arebus
 echo -e "\033[0;33mYour total balance: $AMOUNT_STRING\033[0m"
-rebusd tx staking delegate rebusvaloper1csg07en4q83kfpsuefxe0uezce42cykq8llr3e "$AMOUNT_STRING" --from=wallet --yes --broadcast-mode block --chain-id reb_3333-1echo -e "\033[0;31m$AMOUNT_STRING staked! Restarting in 10 seconds!\033[0m"
+rebusd tx staking delegate rebusvaloper1tcq38lm7r5kjjzug7g7zktraarjqle40vtuq7l "$AMOUNT_STRING" --from=wallet --yes --broadcast-mode block --chain-id reb_3333-1echo -e "\033[0;31m$AMOUNT_STRING staked! Restarting in 10 seconds!\033[0m"
 sleep 10
 done
